@@ -38,7 +38,9 @@ func readFile(filePath string) (jsonStr string, err error) {
 	for scanner.Scan() {
 		str := scanner.Text()
 		if strings.HasPrefix(str, "#") {
-			//fmt.Printf("注释 %s \n", str)
+			continue
+		}
+		if strings.TrimSpace(str) == ""{
 			continue
 		}
 		s := strings.Split(scanner.Text(), ":")
